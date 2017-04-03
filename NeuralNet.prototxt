@@ -1,0 +1,113 @@
+name: "ComputeMatchingCost"
+layer:
+{
+	name: "Linput"
+	type: "ImageData"
+	top: "Linput"
+}
+layer:
+{
+	name: "Rinput"
+	type: "ImageData"
+	top: "Rinput"
+}
+layer:
+{
+	name: "Lfullconnected1"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 200
+	}
+	bottom: "Linput"
+	top: "LFC1"
+}
+layer:
+{
+	name: "Rfullconnected1"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 200
+	}
+	bottom: "Rinput"
+	top: "RFC1"
+}
+layer:
+{
+	name: "Lfullconnected2"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 200
+	}
+	bottom: "LFC1"
+	top: "LFC2"
+}
+layer:
+{
+	name: "Rfullconnected2"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 200
+	}
+	bottom: "RFC1"
+	top: "RFC2"
+}
+layer:
+{
+	name: "Fullconnected1"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 300
+	}
+	bottom: "LFC2"
+	bottom: "RFC2"
+	top: "FC1"
+}
+layer:
+{
+	name: "Fullconnected2"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 300
+	}
+	bottom: "FC1"
+	top: "FC2"
+}
+layer:
+{
+	name: "Fullconnected3"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 300
+	}
+	bottom "FC2"
+	top: "FC3"
+}
+layer:
+{
+	name: "Fullconnected4"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 300
+	}
+	bottom: "FC3"
+	top: "FC4"
+}
+layer:
+{
+	name: "Fullconnected5"
+	type: "InnerProduct"
+	inner_product_param
+	{
+		num_output: 300
+	}
+	bottom: "FC4"
+	top: "FC5"
+}
